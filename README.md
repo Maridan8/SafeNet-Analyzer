@@ -45,12 +45,12 @@ Una vez que hayas instalado las bibliotecas requeridas, puedes ejecutar el códi
 
 python
 
-revisar_registros()
-analizar_trafico()
-escanear_red()
-controlar_rendimiento()
-analizar_cortafuegos()
-monitorear_eventos_seguridad()
+    revisar_registros()
+    analizar_trafico()
+    escanear_red()
+    controlar_rendimiento()
+    analizar_cortafuegos()
+    monitorear_eventos_seguridad()
 
 Observarás la salida en la consola que muestra las actividades sospechosas encontradas, resultados de análisis de tráfico, información del escaneo de puertos, rendimiento anormal de red y eventos de seguridad monitoreados.
 
