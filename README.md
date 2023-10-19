@@ -1,57 +1,37 @@
-Readme
+SafeNet Analyzer es una herramienta que te permite analizar y monitorear el tráfico de red, realizar exploraciones de puertos en una red y supervisar eventos de seguridad en tiempo real. Esta herramienta es útil para identificar y analizar actividades sospechosas en la red.
 
-Este es un código en Python que se utiliza para monitorear la seguridad de una red. El código implementa varias funciones para analizar el tráfico de red, escanear los puertos de los hosts en la red, controlar el rendimiento de la red, analizar registros de actividad y monitorear eventos de seguridad en un directorio específico.
-Requisitos previos
+## Características
 
-Para ejecutar este código, necesitarás tener instaladas las siguientes bibliotecas de Python:
+- Captura de Tráfico de Red:
+- Análisis de Tráfico HTTP
+- Escaneo de Puertos
+- Supervisión de Rendimiento de Red
+- Análisis de Registros del Cortafuegos
+- Monitorización de Eventos de Seguridad
+- Personalización: Puedes personalizar los filtros y límites de rendimiento según tus necesidades.
 
-    os
-    scapy
-    nmap
-    psutil
-    pyinotify
 
-Puedes instalar estas bibliotecas utilizando el administrador de paquetes pip de Python. Por ejemplo:
 
-    pip install scapy
-    pip install python-nmap
-    pip install psutil
-    pip install pyinotify
+## Requisitos
 
-Funcionalidades
+Antes de utilizar SafeNet Analyzer, asegúrate de tener instalados los siguientes requisitos:
 
-El código contiene las siguientes funciones:
+- Bibliotecas requeridas, que puedes instalar ejecutando `pip install -r requirements.txt`.
 
-1. Revisar registros
-La función revisar_registros() lee un archivo de registros (registros.txt) y busca actividades sospechosas. Si se encuentra alguna actividad sospechosa, se muestra un mensaje indicando la actividad sospechosa encontrada.
+- pip install scapy nmap psutil pyinotify
 
-2. Analizar tráfico
-La función analizar_trafico() utiliza la biblioteca Scapy para capturar y analizar el tráfico de red. La función define un analizador de paquetes que verifica si los paquetes contienen capas DNS, HTTP, FTP o SMTP. Puedes agregar el análisis específico para cada tipo de tráfico en las secciones correspondientes. En el caso de DNS, el analizador identifica consultas DNS sospechosas para un dominio específico (dominio_sospechoso.com).
+## Uso
 
-3. Escanear red
-La función escanear_red() utiliza la biblioteca python-nmap para escanear los puertos de los hosts en una red específica. La función realiza un escaneo de los puertos 1-1000 en una subred específica (192.168.1.0/24) y muestra el estado de cada puerto encontrado en cada host.
+Para usar SafeNet Analyzer, sigue estos pasos:
 
-4. Controlar rendimiento
-La función controlar_rendimiento() utiliza la biblioteca psutil para obtener estadísticas de E/S de red. La función verifica si la cantidad de bytes enviados o recibidos es menor que los límites definidos (limite_bytes_enviados y limite_bytes_recibidos). Si la cantidad de bytes es inferior a los límites, se muestra un mensaje indicando un rendimiento anormal de la red.
+- Clona este repositorio en tu sistema.
+- Crea un entorno virtual e instala las dependencias del proyecto.
+- Ejecuta la aplicación con Python 3.9 o superior: `python3 safenet_analyzer.py`.
 
-5. Analizar cortafuegos
-La función analizar_cortafuegos() lee un archivo de registros del cortafuegos (cortafuegos.log) y busca actividades sospechosas relacionadas con conexiones no autorizadas o solicitudes sospechosas. Si se encuentra alguna actividad sospechosa, se muestra un mensaje indicando la actividad sospechosa encontrada.
 
-6. Monitorear eventos de seguridad
-La función monitorear_eventos_seguridad() utiliza la biblioteca pyinotify para monitorear eventos de seguridad en un directorio específico (/var/log). La función define un gestor de eventos que se encarga de procesar los eventos de acceso, modificación, cambio de atributos y cierre de escritura de archivos. Puedes agregar otros métodos de procesamiento de eventos según tus necesidades.
-Uso
 
-Una vez que hayas instalado las bibliotecas requeridas, puedes ejecutar el código en un entorno Python. Asegúrate de que el archivo registros.txt y cortafuegos.log existan en el mismo directorio que el archivo de código. Luego, llama a las funciones en el orden deseado para realizar las tareas de monitoreo de seguridad de red.
+Una vez que el programa esté en funcionamiento, podrás ver la salida en la consola. El programa capturará y analizará el tráfico de red en los puertos especificados y proporcionará información sobre actividades sospechosas, exploraciones de puertos y eventos de seguridad en tiempo real.
 
-python
+## Configuración
 
-    revisar_registros()
-    analizar_trafico()
-    escanear_red()
-    controlar_rendimiento()
-    analizar_cortafuegos()
-    monitorear_eventos_seguridad()
-
-Observarás la salida en la consola que muestra las actividades sospechosas encontradas, resultados de análisis de tráfico, información del escaneo de puertos, rendimiento anormal de red y eventos de seguridad monitoreados.
-
-¡Asegúrate de personalizar las funciones según tus necesidades específicas de monitoreo y seguridad de red!
+Puedes personalizar el comportamiento del programa modificando los filtros en el código fuente. Por ejemplo, puedes cambiar los puertos de red que se están monitoreando o ajustar los límites de rendimiento.
