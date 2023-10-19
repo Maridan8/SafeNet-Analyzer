@@ -1,0 +1,4 @@
+scapy==2.4.5
+nmap==7.80
+psutil==5.8.0
+pyinotify==0.9.6
