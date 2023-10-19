@@ -19,10 +19,10 @@ Antes de utilizar SafeNet Analyzer, asegúrate de tener instalados los siguiente
 
 ## Uso
 
-1. Clona este repositorio en tu sistema
-2. Crea un entorno virtual e instala las dependencias del proyecto.
-3. Ejecuta la aplicación con Python 3.9 o superior: `python3 safenet_analyzerplus.py`.
-4. (Eexcepcional) En algunas distros de linux: `sudo -E env "PATH=$PATH" python3 safenet_analyzerplus.py`
+- Clona este repositorio en tu sistema
+- Crea un entorno virtual e instala las dependencias del proyecto.
+- Ejecuta la aplicación con Python 3.9 o superior: `python3 safenet_analyzerplus.py`.
+- (Eexcepcional) En algunas distros de linux: `sudo -E env "PATH=$PATH" python3 safenet_analyzerplus.py`
 
 ## Uso adicional:
 
