@@ -1,5 +1,31 @@
+# -*- coding: utf-8 -*-
+'''
+   _____       ____     _   __     __        ___                __         
+  / ___/____ _/ __/__  / | / /__  / /_      /   |  ____  ____ _/ /_  ______  ___  _____   
+  \__ \/ __ `/ /_/ _ \/  |/ / _ \/ __/_____/ /| | / __ \/ __ `/ / / / /_  / / _ \/ ___/    
+ ___/ / /_/ / __/  __/ /|  /  __/ /_/_____/ ___ |/ / / / /_/ / / /_/ / / /_/  __/ /        
+/____/\__,_/_/  \___/_/ |_/\___/\__/     /_/  |_/_/ /_/\__,_/_/\__, / /___/\___/_/            
+                                                              /____/       
+'''
+#######################################################
+#    SafeNet-Analyzer.py
+#
+# SafeNet Analyzer is a tool that allows you to analyze
+# and monitor network traffic, perform port scans on 
+# a network and monitor security events in real time. 
+# This tool is useful for identifying and analyzing 
+# suspicious activity on the network.
+#
+#
+# 10/18/23 - Changed to Python3 (finally)
+#
+# Author: Facundo Fernandez 
+#
+#
+#######################################################
+
 import os
-from scapy.all import sniff, DNS, HTTP, FTP, SMTP
+from scapy.all import sniff, TCP
 import nmap
 import psutil
 import pyinotify
@@ -8,6 +34,13 @@ logfile = "logs.txt"
 firewall_logfile = "firewall.log"
 sent_bytes_limit = 10000000
 received_bytes_limit = 10000000
+
+def analyze_packet(packet):
+    if packet.haslayer(TCP) and packet[TCP].dport == 80:
+        # Realiza el análisis de tráfico HTTP aquí
+        print("HTTP Packet:", packet.summary())
+
+sniff(filter="tcp port 80", prn=analyze_packet)
 
 def check_logs():
     if os.path.isfile(logfile):
@@ -45,7 +78,7 @@ def analyze_traffic():
 
 def scan_network():
     scanner = nmap.PortScanner()
-    ip_address = "192.168.1.0/24"
+    ip_address = "{IP}/{PORT}"
     scanner.scan(hosts=ip_address, arguments="-p 1-1000 -T4")
     
     for host in scanner.all_hosts():
