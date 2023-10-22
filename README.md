@@ -18,7 +18,6 @@ Antes de utilizar SafeNet Analyzer, asegúrate de tener instalados los siguiente
 
 - Bibliotecas requeridas, que puedes instalar ejecutando `pip install -r requirements.txt`.
 
-- pip install scapy nmap psutil pyinotify
 
 ## Uso
 
